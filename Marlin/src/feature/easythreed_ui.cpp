@@ -194,7 +194,9 @@ void EasythreedUI::printButton() {
                 print_key_flag = PF_START;
                 return;                                             // Bail out
             }
-            card.ls();                                              // List all files to serial output
+            card.ls(TERN0(CUSTOM_FIRMWARE_UPLOAD,     parser.boolval('F') << LS_ONLY_BIN)
+              | TERN0(LONG_FILENAME_HOST_SUPPORT, parser.boolval('L') << LS_LONG_FILENAME)
+              | TERN0(M20_TIMESTAMP_SUPPORT,      parser.boolval('T') << LS_TIMESTAMP));                                              // List all files to serial output
             const uint16_t filecnt = card.countFilesInWorkDir();    // Count printable files in cwd
             if (filecnt == 0) return;                               // None are printable?
             card.selectFileByIndex(filecnt);                        // Select the last file according to current sort options

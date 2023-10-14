@@ -316,3 +316,15 @@
     #define SPINDLE_DIR_PIN                   -1  // No pin available on the socket for the direction pin
   #endif
 #endif
+
+// EXP1 replace LCD with keys for EasyThreeD ET4000-V2 Mainboard
+#if ENABLED(EASYTHREED_UI)
+  #define BTN_HOME                   17  // INPUT_PULLUP (unused)
+  #define BTN_FEED                   28  // Run E Forward
+  #define BTN_RETRACT                16  // Run E Backward
+  #define BTN_PRINT                  10  // Start File Print
+  #define BTN_HOME_GND               30  // OUTPUT (LOW)
+  #define BTN_FEED_GND               29  // OUTPUT (LOW)
+  #define BTN_RETRACT_GND            11  // OUTPUT (LOW)
+  #define EASYTHREED_LED_PIN         27  // Indicator LED
+#endif
